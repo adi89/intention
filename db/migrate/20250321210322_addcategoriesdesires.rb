@@ -6,7 +6,7 @@ class Addcategoriesdesires < ActiveRecord::Migration[7.2]
 
       t.timestamps
     end
-    add_index :categories_desires, [:category_id, :desire_id], unique: true
+    add_index :categories_desires, [ :category_id, :desire_id ], unique: true
 
     remove_column :desires, :category_id
   end

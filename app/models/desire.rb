@@ -14,5 +14,4 @@ class Desire < ApplicationRecord
     self.priority += 1
     save
   end
-
 end

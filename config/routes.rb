@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :desires do
     post "prioritize" => "desires#prioritize"
   end
-  root to: 'desires#index'
+  root to: "desires#index"
 end

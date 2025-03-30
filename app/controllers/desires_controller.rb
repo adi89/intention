@@ -1,5 +1,4 @@
 class DesiresController < ApplicationController
-
   def index
     @desires = Desire.prioritized
     @desire = Desire.new
@@ -18,10 +17,10 @@ class DesiresController < ApplicationController
 
     respond_to do |format|
       if @desire.save
-        format.html { redirect_to desires_url, notice: 'Intention was successfully created.' }
+        format.html { redirect_to desires_url, notice: "Intention was successfully created." }
         format.json { render :show, status: :created, location: @desire }
       else
-        format.turbo_stream { render turbo_stream: turbo_stream.replace(@desire, partial: "desires/form", locals: { desire: @desire}) } #only need to provide stream on the fail state. otherwise turbo knows the RESTFUL flow (redirect to index.)
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@desire, partial: "desires/form", locals: { desire: @desire }) } # only need to provide stream on the fail state. otherwise turbo knows the RESTFUL flow (redirect to index.)
         format.html { render :new }
         format.json { render json: @desire.errors, status: :unprocessable_entity }
       end
@@ -33,11 +32,11 @@ class DesiresController < ApplicationController
 
     respond_to do |format|
       if @desire.update(desire_params)
-        format.html { redirect_to desires_url, notice: 'Intention was successfully updated.' }
+        format.html { redirect_to desires_url, notice: "Intention was successfully updated." }
         format.json { render :show, status: :ok, location: @desire }
       else
         format.html { render :edit }
-        format.turbo_stream { render turbo_stream: turbo_stream.replace(@desire, partial: "desires/form", locals: { desire: @desire}) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@desire, partial: "desires/form", locals: { desire: @desire }) }
         format.json { render json: @desire.errors, status: :unprocessable_entity }
       end
     end
@@ -50,8 +49,8 @@ class DesiresController < ApplicationController
 
 
     respond_to do |format|
-      format.html { redirect_to desires_url, notice: 'Intention was successfully prioritized.' }
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("desiresList", partial: "desires/list", locals: { desires: @desires}) }
+      format.html { redirect_to desires_url, notice: "Intention was successfully prioritized." }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("desiresList", partial: "desires/list", locals: { desires: @desires }) }
       format.json { render :index, status: :ok }
     end
   end
