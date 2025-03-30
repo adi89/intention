@@ -1,0 +1,8 @@
+<h2> Edit </h2>
+
+<%= turbo_frame_tag dom_id(@desire) do %>
+  <div class="card card-body">
+    <%= render 'form', desire: @desire %>
+    <%= link_to "Cancel", @desire %> <%# Show page link %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<%= form_with(model: desire, id: dom_id(desire)) do |form| %>
+
+  <div class="formBody">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  <% end %>

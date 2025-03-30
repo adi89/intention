@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Intention</h1>
+
+<%= turbo_stream_from "desires" %>
+
+<%= turbo_frame_tag "desires_form" do %>
+  <%= render "desires/form", desire: @desire %>
+<% end%>
+
+<%= render "desires/list", desires: @desires %>
